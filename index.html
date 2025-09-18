@@ -1,13 +1,133 @@
-<body style="margin: 0;">
-		<div id="instructions">
-			<div>
-				<h1>Click to begin</h1>
-				
-				Shoot: LEFT MOUSE CLICK<br/>
-				Move: W-A-S-D or ARROWS<br/>
-				Run: SHIFT<br/>
-				Jump: SPACE<br/>
-				Look: MOUSE
-			</div>
-		</div>
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Replik - Gleerups-look</title>
+  <style>
+    :root{ --blue:#1e88e5; --muted:#f3f4f6; --card:#fff; --accent:#0b74da; }
+    *{box-sizing:border-box;font-family: Inter, Roboto, Arial, sans-serif}
+    body{margin:0;background:#fafafa;color:#111}
+
+    /* top bar */
+    .topbar{height:56px;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;padding:0 20px;gap:12px}
+    .logo{font-weight:700;color:#e53935;font-size:20px}
+    .top-actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+
+    /* layout */
+    .wrap{display:flex;height:calc(100vh - 56px)}
+    .sidebar{width:320px;background:#fff;border-right:1px solid #e9ecef;padding:18px;overflow:auto}
+    .content{flex:1;padding:30px 48px;background:linear-gradient(#fbfcfd,#fafafa)}
+
+    /* sidebar search */
+    .search{display:flex;gap:8px;align-items:center;margin-bottom:18px}
+    .search input{flex:1;padding:10px 12px;border:1px solid #e6e6e6;border-radius:6px}
+    .media-toggle{display:flex;align-items:center;gap:8px;color:#666;font-size:14px}
+
+    /* nav list */
+    .nav{margin-top:6px}
+    .nav .group{padding:10px;border-radius:6px;margin-bottom:6px;color:#333}
+    .nav .group.active{background:#faf0d9}
+    .nav h4{margin:0 0 8px 0;font-size:13px;color:#666}
+    .nav ul{list-style:none;padding:0;margin:0}
+    .nav li{padding:10px;border-radius:4px;color:#444}
+
+    /* main content */
+    .breadcrumbs{color:#777;font-size:13px;margin-bottom:14px}
+    .title{font-family: Georgia, 'Times New Roman', serif;font-size:48px;margin:6px 0 18px}
+    .tabs{display:flex;border-bottom:1px solid #e6e6e6;margin-bottom:22px}
+    .tabs button{background:none;border:none;padding:16px 26px;font-size:16px;cursor:pointer}
+    .tabs button.active{border-bottom:4px solid var(--accent);color:var(--accent);}
+
+    .card{background:var(--card);border:1px solid #e9ecef;border-radius:6px;padding:18px;max-width:760px}
+    .card .section-title{font-weight:600;margin-bottom:12px}
+
+    /* progress bar */
+    .progress{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .progress .bar{flex:1;height:8px;background:#efefef;border-radius:6px;display:flex}
+    .progress .bar span{display:block;height:100%;border-radius:6px}
+    .progress .bar .done{width:20%;background:#f3b02e}
+    .progress .bar .wrong{width:8%;background:#d9534f}
+    .progress .bar .current{width:12%;background:#6b6b6b}
+
+    .question{background:#f5f5f7;padding:12px;border-radius:4px;margin-top:10px}
+    .tips{font-size:13px;color:#0b74da;float:right}
+
+    /* responsive */
+    @media (max-width:900px){.sidebar{display:none}.content{padding:18px}}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="logo">gleerups</div>
+    <div class="top-actions">
+      <div style="font-size:14px;color:#666">Läromedel</div>
+      <div style="width:8px"></div>
+      <div style="width:32px;height:32px;border-radius:50%;background:#e6eefb"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <aside class="sidebar">
+      <div style="font-weight:600;margin-bottom:10px">Energiteknik nivå 1, Gy25</div>
+      <div class="search">
+        <input placeholder="Sök på ID eller innehåll" />
+        <button style="padding:8px 12px;border-radius:6px;border:1px solid #e6e6e6;background:#fff">INNEHÅLL</button>
+      </div>
+      <label class="media-toggle"><input type="checkbox" style="margin-right:8px"/> Visa media</label>
+
+      <div class="nav">
+        <div class="group active">
+          <h4>1. Uppgifter</h4>
+          <ul>
+            <li>1.2.1 Vad är energi?</li>
+            <li style="color:#999;margin-top:8px">Fråga 3 av 10</li>
+          </ul>
+        </div>
+        <div class="group">
+          <h4>2. Transport av energi</h4>
+        </div>
+        <div class="group">
+          <h4>3. Transport av elenergi</h4>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="breadcrumbs">Energiteknik nivå 1, Gy25 &nbsp; &gt; &nbsp; 1. Vad är energi? &nbsp; &gt; &nbsp; 1. Uppgifter</div>
+
+      <div class="title">Nigger</div>
+
+      <div class="tabs">
+        <button>Del 1</button>
+        <button class="active">Del 2</button>
+        <button>Del 3</button>
+      </div>
+
+      <div class="card">
+        <div class="section-title">1.2.1 Vad är energi?</div>
+
+        <div class="progress">
+          <div class="bar" aria-hidden="true">
+            <span class="done"></span>
+            <span class="wrong"></span>
+            <span class="current"></span>
+            <span style="flex:1"></span>
+          </div>
+          <div style="width:40px;text-align:center;font-size:13px;color:#666">3/10</div>
+        </div>
+
+        <div style="clear:both"></div>
+
+        <div class="question">
+          <div style="font-weight:600;margin-bottom:6px">Fråga 3 av 10 <span class="tips">TIPS</span></div>
+          <div style="background:#e9e9ee;padding:12px;border-radius:4px">Glöm inte att göra uppgiften.</div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
 </body>
+</html>
